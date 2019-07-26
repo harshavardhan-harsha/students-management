@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 class AddStudent extends Component {
   addStudent = async newStudent => {
     try {
-      await axios.post("http://localhost:5000/api/students", newStudent);
+      await axios.post("/api/students", newStudent);
       this.props.history.push("/");
     } catch (error) {
       console.error(error.message);
