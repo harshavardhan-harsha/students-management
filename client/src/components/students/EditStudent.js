@@ -16,7 +16,7 @@ class EditStudent extends Component {
   getStudentDetails = async () => {
     let editStudentId = this.props.match.params.id;
     try {
-      const res = await axios.get(`/api/students/${editStudentId}`);
+      const res = await axios.get(`http://localhost:5000/api/students/${editStudentId}`);
       this.setState({
         name: res.data.name,
         age: res.data.age,
@@ -30,7 +30,7 @@ class EditStudent extends Component {
   editStudent = async newStudent => {
     let editStudentId = this.props.match.params.id;
     try {
-      await axios.put(`/api/students/${editStudentId}`, newStudent);
+      await axios.put(`http://localhost:5000/api/students/${editStudentId}`, newStudent);
       this.props.history.push("/");
     } catch (error) {
       console.error(error.message);

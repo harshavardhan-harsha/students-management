@@ -14,7 +14,7 @@ class Students extends Component {
 
   getStudents = async () => {
     try {
-      const res = await axios.get("/api/students");
+      const res = await axios.get("http://localhost:5000/api/students");
       this.setState({ students: res.data });
     } catch (error) {
       console.error(error.message);
@@ -23,7 +23,7 @@ class Students extends Component {
 
   onDelete = id => {
     axios
-      .delete(`/api/students/${id}`)
+      .delete(`http://localhost:5000/api/students/${id}`)
       .then(res => {
         //this.props.history.push('/');
         //console.log(res);
