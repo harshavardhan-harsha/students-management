@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, NavLink } from "react-router-dom";
 import Navbar from "./components/layouts/Navbar";
 import Students from "./components/students/Students";
 import About from "./components/layouts/About";
@@ -19,6 +19,11 @@ const App = () => {
             <Route exact path="/students/add" component={AddStudent} />
             <Route exact path="/students/edit/:id" component={EditStudent} />
           </Switch>
+          <div className="fixed-action-btn">
+            <NavLink to="/students/add" className="btn-floating btn-large red">
+              <i className="fas fa-plus"> </i>
+            </NavLink>
+          </div>
         </div>
       </Fragment>
     </Router>
