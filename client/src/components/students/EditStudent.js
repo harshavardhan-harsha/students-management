@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
+import Swal from "sweetalert2";
 
 class EditStudent extends Component {
   state = {
@@ -31,8 +32,10 @@ class EditStudent extends Component {
     let editStudentId = this.props.match.params.id;
     try {
       await axios.put(`/api/students/${editStudentId}`, newStudent);
+      Swal.fire("Edited!", "Your data has been saved.", "success");
       this.props.history.push("/");
     } catch (error) {
+      Swal.fire("Oops!", "Something went wrong", "error");
       console.error(error.message);
     }
   };

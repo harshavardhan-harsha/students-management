@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
+import Swal from "sweetalert2";
 
 class AddStudent extends Component {
   addStudent = async newStudent => {
     try {
       await axios.post("/api/students", newStudent);
+      Swal.fire("Added!", "Your data has been recorded.", "success");
       this.props.history.push("/");
     } catch (error) {
+      Swal.fire("Oops!", "Something went wrong", "error");
       console.error(error.message);
     }
   };

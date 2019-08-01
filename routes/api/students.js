@@ -36,10 +36,12 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json(errors.array());
     }
+    const { name, age, email } = req.body;
+
     const newStudent = new Student({
-      name: req.body.name,
-      age: req.body.age,
-      email: req.body.email
+      name: name,
+      age: age,
+      email: email
     });
 
     try {
