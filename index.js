@@ -22,7 +22,6 @@ app.use(cors());
 // });
 
 app.use("/api/students", cors(), require("./routes/api/students"));
-app.use("/api/students", cors(), require("./routes/api/students"));
 
 // Settings to be made before uploading to heroku
 // Server static assets in production
